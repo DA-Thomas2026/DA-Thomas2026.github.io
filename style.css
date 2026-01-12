@@ -17,6 +17,7 @@ nav {
     display: flex;
     padding: 10px;
     margin-bottom: 20px;
+    border-radius: 15px;
 }
 
 h1 {
@@ -75,3 +76,28 @@ main {
 h2, h3 {
     margin: 0px;
 }
+.content h1 {
+    color: black;
+  }
+  
+  #portfolio {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  #portfolio li {
+    background: #f1fde9;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+  }
+  
+  #portfolio li:hover {
+    background: #b5fc86;
+  }
+  
+  #portfolio a {
+    text-decoration: none;
+    color: #454545;
+  }
+ 
