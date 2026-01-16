@@ -464,6 +464,9 @@ var Gamification = (function () {
           if (player1Size > otherSize * absorptionThreshold) {
             // Player 1 absorbs the other circle
             absorb(player1, otherCircle, i, 1);
+            if (player1.radius > 50){
+              gameOver("Congratulations! You are the Alpha Circle!")
+            }
           } else if (otherSize > player1Size * absorptionThreshold) {
             // Other circle absorbs player 1 - game over for player 1
             removePlayer(1);
