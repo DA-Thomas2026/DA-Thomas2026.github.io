@@ -193,6 +193,9 @@ function handleHallebotGenericCollision(gameObjectIndex) {
     // mark the object for deletion if it is a collectible
     gameObject.toRemove = true;
   }
+  if (health <= 0){
+    currentAnimationType = animationTypes.frontDeath
+  }
 }
 
 function isGenericCollision(gameObject) {
@@ -249,7 +252,7 @@ function handleHallebotGoalCollision() {
     return;
   }
 
-  if (player.x > goal.x) {
+  if (player.x > goal.x && currentAnimationType !== animationTypes.frontDeath) {
     // first clear gameObjects
     gameObjects = [];
 
