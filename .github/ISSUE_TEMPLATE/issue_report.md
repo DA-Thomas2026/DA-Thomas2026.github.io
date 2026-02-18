@@ -1,8 +1,8 @@
 ---
 name: Issue Report
 about: Use this template to report issues or suggest improvements
-title: "[Setup Issue] "
-labels: fsd, setup
+title: "[Code Quiz Issue] "
+labels: asd, code-quiz
 assignees: ""
 ---
 
