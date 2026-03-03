@@ -141,7 +141,7 @@ function bounceGhost(ghost) {
     ghost.speedX *= -1;
   }
   // this bounces off the right wall
-  else if (ghost.x > boardWidth) {
+  else if (ghost.x > boardWidth-20) {
     ghost.x -= ghost.speedX;
     ghost.speedX *= -1;
   }
@@ -151,7 +151,7 @@ function bounceGhost(ghost) {
     ghost.speedY *= -1;
   }
   // this bounces off the bottom wall
-  else if (ghost.y > boardHeight) {
+  else if (ghost.y > boardHeight - 20) {
     ghost.y -= ghost.speedY;
     ghost.speedY *= -1;
   }
