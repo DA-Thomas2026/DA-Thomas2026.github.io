@@ -1,0 +1,18 @@
+main {
+    display: flex;
+}
+#die {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    position: relative;
+    border: 2px solid black;
+}
+#die2 {
+    height: 100px;
+    width: 100px;
+    background-color: white;
+    position: relative;
+    border: 2px solid black;
+    margin-left: 50px;
+}
