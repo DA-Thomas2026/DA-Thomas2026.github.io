@@ -1,8 +1,8 @@
 $(document).ready(function () {
   // Your code goes here
-  var dieAmount = 1
-  var die2Amount = 1
-  var dieTotal = 2
+  var dieAmount = 1;
+  var die2Amount = 1;
+  var dieTotal = 2;
   $("<div>")
     .css("height", 15)
     .css("width", 15)
@@ -11,7 +11,7 @@ $(document).ready(function () {
     .css("top", 50)
     .css("left", 50)
     .appendTo("#die");
-    $("<div>")
+  $("<div>")
     .css("height", 15)
     .css("width", 15)
     .css("background-color", "red")
@@ -20,54 +20,54 @@ $(document).ready(function () {
     .css("left", 50)
     .appendTo("#die2");
 
-  function makeDot(top, left, elementID, color){
+  function makeDot(top, left, elementID, color) {
     $("<div>")
-    .css("height", 15)
-    .css("width", 15)
-    .css("background-color", color)
-    .css("position", "absolute")
-    .css("top", top)
-    .css("left", left)
-    .appendTo(elementID);
+      .css("height", 15)
+      .css("width", 15)
+      .css("background-color", color)
+      .css("position", "absolute")
+      .css("top", top)
+      .css("left", left)
+      .appendTo(elementID);
   }
 
-  function rollDie(dieID, colour){
+  function rollDie(dieID, colour) {
     $(dieID).empty();
     var randomNum = Math.ceil(Math.random() * 6);
-    console.log(randomNum)
+    console.log(randomNum);
     if (randomNum === 1) {
       makeDot(50, 50, dieID, colour); // middle middle
-      if (dieID === "#die"){
-        dieAmount = 1
+      if (dieID === "#die") {
+        dieAmount = 1;
       } else {
-        die2Amount = 1
+        die2Amount = 1;
       }
     } else if (randomNum === 2) {
       makeDot(25, 25, dieID, colour); // top left
       makeDot(75, 75, dieID, colour); // bottom right
-      if (dieID === "#die"){
-        dieAmount = 2
+      if (dieID === "#die") {
+        dieAmount = 2;
       } else {
-        die2Amount = 2
+        die2Amount = 2;
       }
     } else if (randomNum === 3) {
       makeDot(25, 25, dieID, colour); // top left
       makeDot(75, 75, dieID, colour); // bottom right
       makeDot(50, 50, dieID, colour); // middle middle
-      if (dieID === "#die"){
-        dieAmount = 3
+      if (dieID === "#die") {
+        dieAmount = 3;
       } else {
-        die2Amount = 3
+        die2Amount = 3;
       }
     } else if (randomNum === 4) {
       makeDot(75, 75, dieID, colour); // bottom right
       makeDot(25, 25, dieID, colour); // top left
       makeDot(25, 75, dieID, colour); // bottom left
       makeDot(75, 25, dieID, colour); // top right
-      if (dieID === "#die"){
-        dieAmount = 4
+      if (dieID === "#die") {
+        dieAmount = 4;
       } else {
-        die2Amount = 4
+        die2Amount = 4;
       }
     } else if (randomNum === 5) {
       makeDot(50, 50, dieID, colour); // middle middle
@@ -75,10 +75,10 @@ $(document).ready(function () {
       makeDot(25, 25, dieID, colour); // top left
       makeDot(25, 75, dieID, colour); // bottom left
       makeDot(75, 25, dieID, colour); // top right
-      if (dieID === "#die"){
-        dieAmount = 5
+      if (dieID === "#die") {
+        dieAmount = 5;
       } else {
-        die2Amount = 5
+        die2Amount = 5;
       }
     } else if (randomNum === 6) {
       makeDot(75, 75, dieID, colour); // bottom right
@@ -87,22 +87,22 @@ $(document).ready(function () {
       makeDot(75, 25, dieID, colour); // top right
       makeDot(50, 25, dieID, colour);
       makeDot(50, 75, dieID, colour);
-      if (dieID === "#die"){
-        dieAmount = 6
+      if (dieID === "#die") {
+        dieAmount = 6;
       } else {
-        die2Amount = 6
+        die2Amount = 6;
       }
     }
   }
 
-  function handleClick(){
-    rollDie("#die", "black")
-    dieTotal = dieAmount + die2Amount
+  function handleClick() {
+    rollDie("#die", "black");
+    dieTotal = dieAmount + die2Amount;
     $("p").text("Total: " + dieTotal);
   }
-  function handleClick2(){
-    rollDie("#die2", "red")
-    dieTotal = dieAmount + die2Amount
+  function handleClick2() {
+    rollDie("#die2", "red");
+    dieTotal = dieAmount + die2Amount;
     $("p").text("Total: " + dieTotal);
   }
   $("#die").on("click", handleClick);
