@@ -44,6 +44,9 @@ a {
     text-decoration: none;
     color: #ffffff;
 }
+#hidLink {
+    color: rgb(45, 45, 45)
+}
 
 /* main container area beneath menu */
 main {
