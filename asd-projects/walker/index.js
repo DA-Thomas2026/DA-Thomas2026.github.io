@@ -54,7 +54,7 @@ function runProgram() {
   };
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL); // execute newFrame every 0.0166 seconds (60 Frames per second)
-  setInterval(timerAction,1000)
+  setInterval(timerAction, 1000);
   /* 
   This section is where you set up event listeners for user input.
   For example, if you wanted to handle a click event on the document, you would replace 'eventType' with 'click', and if you wanted to execute a function named 'handleClick', you would replace 'handleEvent' with 'handleClick'.
@@ -76,28 +76,28 @@ function runProgram() {
     repositionGameItem();
     wallCollision();
     redrawGameItem();
-    if(walker.isIt === true){
-      $("#walker").css("background-color", "red")
-      $("#talker").css("background-color", "purple")
-    } else if (talker.isIt === true){
-      $("#talker").css("background-color", "red")
-      $("#walker").css("background-color", "teal")
+    if (walker.isIt === true) {
+      $("#walker").css("background-color", "red");
+      $("#talker").css("background-color", "purple");
+    } else if (talker.isIt === true) {
+      $("#talker").css("background-color", "red");
+      $("#walker").css("background-color", "teal");
     }
-    if (pCollideCheck() === true){
+    if (pCollideCheck() === true) {
       //console.log("collison")
-      if (walker.isIt === true && talker.ableToBeHit === true){
+      if (walker.isIt === true && talker.ableToBeHit === true) {
         talker.isIt = true;
         talker.ableToBeHit = false;
         walker.isIt = false;
         walker.speedBoost = 3;
-        walker.invinceTimer = 5
-      } else if (walker.isIt === false && walker.ableToBeHit === true){
+        walker.invinceTimer = 5;
+      } else if (walker.isIt === false && walker.ableToBeHit === true) {
         //debugger;
         walker.isIt = true;
         walker.ableToBeHit = false;
         talker.isIt = false;
         talker.speedBoost = 3;
-        talker.invinceTimer = 5
+        talker.invinceTimer = 5;
       }
     }
   }
@@ -111,22 +111,22 @@ function runProgram() {
   function handleKeyDown(event) {
     //console.log(event.which);
     if (event.which === KEY.LEFT) {
-      walker.speedX = (-5 - walker.speedBoost);
+      walker.speedX = -5 - walker.speedBoost;
     } else if (event.which === KEY.UP) {
-      walker.speedY = (-5 - walker.speedBoost);
+      walker.speedY = -5 - walker.speedBoost;
     } else if (event.which === KEY.RIGHT) {
-      walker.speedX = (5 + walker.speedBoost);
+      walker.speedX = 5 + walker.speedBoost;
     } else if (event.which === KEY.DOWN) {
-      walker.speedY = (5 + walker.speedBoost);
+      walker.speedY = 5 + walker.speedBoost;
     }
     if (event.which === KEY.A) {
-      talker.speedX = (-5 - talker.speedBoost);
+      talker.speedX = -5 - talker.speedBoost;
     } else if (event.which === KEY.W) {
-      talker.speedY = (-5 - talker.speedBoost);
+      talker.speedY = -5 - talker.speedBoost;
     } else if (event.which === KEY.D) {
-      talker.speedX = (5 + talker.speedBoost);
+      talker.speedX = 5 + talker.speedBoost;
     } else if (event.which === KEY.S) {
-      talker.speedY = (5 + talker.speedBoost);
+      talker.speedY = 5 + talker.speedBoost;
     }
   }
   function handleKeyUP(event) {
@@ -165,16 +165,16 @@ function runProgram() {
   function repositionGameItem() {
     walker.x += walker.speedX;
     walker.y += walker.speedY;
-    walker.leftX = walker.x
-    walker.topY = walker.y
-    walker.rightX = walker.x + 25
-    walker.bottomY = walker.y + 25
+    walker.leftX = walker.x;
+    walker.topY = walker.y;
+    walker.rightX = walker.x + 25;
+    walker.bottomY = walker.y + 25;
     talker.x += talker.speedX;
     talker.y += talker.speedY;
-    talker.leftX = talker.x
-    talker.topY = talker.y
-    talker.rightX = talker.x + 25
-    talker.bottomY = talker.y + 25
+    talker.leftX = talker.x;
+    talker.topY = talker.y;
+    talker.rightX = talker.x + 25;
+    talker.bottomY = talker.y + 25;
   }
   function redrawGameItem() {
     //console.log("Walker position:", walker.x, walker.y, walker.rightX, walker.bottomY);
@@ -210,34 +210,36 @@ function runProgram() {
       talker.y -= talker.speedY;
     }
   }
-  function pCollideCheck(){
-    if (walker.leftX < talker.rightX && walker.topY < talker.bottomY && walker.bottomY > talker.topY && walker.rightX > talker.leftX){
+  function pCollideCheck() {
+    if (
+      walker.leftX < talker.rightX &&
+      walker.topY < talker.bottomY &&
+      walker.bottomY > talker.topY &&
+      walker.rightX > talker.leftX
+    ) {
       return true;
     } else {
       return false;
     }
   }
-  function timerAction(){
-
-    if (talker.invinceTimer > 0){
-        
-        talker.speedBoost = 3;
-        talker.ableToBeHit = false
-        talker.invinceTimer--;        
-        console.log(talker.invinceTimer)
-    } 
-    if (talker.invinceTimer === 0 && talker.isIt === false){
+  function timerAction() {
+    if (talker.invinceTimer > 0) {
+      talker.speedBoost = 3;
+      talker.ableToBeHit = false;
+      talker.invinceTimer--;
+      console.log(talker.invinceTimer);
+    }
+    if (talker.invinceTimer === 0 && talker.isIt === false) {
       talker.speedBoost = 0;
       talker.ableToBeHit = true;
     }
-    if (walker.invinceTimer > 0){
-        
+    if (walker.invinceTimer > 0) {
       walker.speedBoost = 3;
-      walker.ableToBeHit = false
-      walker.invinceTimer--;        
-      console.log(walker.invinceTimer)
-    } 
-    if (walker.invinceTimer === 0 && walker.isIt === false){
+      walker.ableToBeHit = false;
+      walker.invinceTimer--;
+      console.log(walker.invinceTimer);
+    }
+    if (walker.invinceTimer === 0 && walker.isIt === false) {
       walker.speedBoost = 0;
       walker.ableToBeHit = true;
     }
